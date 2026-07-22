@@ -1,4 +1,6 @@
 ﻿
+using System.Runtime.ConstrainedExecution;
+
 public class Program
 {
     public static int SumOfNumbers(int number)
@@ -19,6 +21,7 @@ public class Program
             return "Jeethu";
         }
 
+        Console.WriteLine($"Count: {n}");
         Console.WriteLine($"Count: {n}");
         return PrintName(n - 1);
     }
@@ -163,30 +166,74 @@ public class Program
 
     }
 
+    public static bool Contains(int[] numbers, int target, int index = 0)
+    {
+        if (index >= numbers.Length)
+        {
+            return false;
+        }
+
+        int arrEle = numbers[index];
+        if (arrEle == target)
+        {
+            return true;
+        }
+
+        return Contains(numbers, target, index + 1);
+    }
+
+    public static bool IsSorted(int[] numbers, int index = 0)
+    {
+        if (index >= numbers.Length - 1)
+        {
+            return true;
+        }
+
+        int currentEle = numbers[index];
+        int nextEle = numbers[index + 1];
+
+        if (currentEle > nextEle)
+        {
+            return false;
+        }
+
+        return IsSorted(numbers, index + 1);
+    }
+
+    public static string ReverseString(string s)
+    {
+        
+    }
+
     public static void Main(string[] args)
     {
-        int number = 48;
-        Console.WriteLine("Print Name after counting to N: {0}", PrintName(number));
-        PrintName(0, number);
+        // int number = 48;
+        // Console.WriteLine("Print Name after counting to N: {0}", PrintName(number));
+        // PrintName(0, number);
 
-        Console.WriteLine("result of summing array element is {0}", SumOfNumbers(number));
+        // Console.WriteLine("result of summing array element is {0}", SumOfNumbers(number));
 
-        CountDownNumbers(10);
-        CountUpNumbers(10);
+        // CountDownNumbers(10);
+        // CountUpNumbers(10);
 
-        Console.WriteLine("Sum Of N: {0}", SumToN(10));
-        Console.WriteLine("Factorial Of N: {0}", Factorial(10));
-        Console.WriteLine("Power Of X to N: {0}", Power(8, 5));
-        Console.WriteLine("Multiply Of a X b: {0}", Multiply(10, 500));
-        Console.WriteLine("Count Digits Of N: {0}",
-        number > 0 ? CountDigits(number) : 1);
-        Console.WriteLine("Sum of Digits Of N: {0}",
-        number > 0 ? SumOfDigits(number) : 1);
+        // Console.WriteLine("Sum Of N: {0}", SumToN(10));
+        // Console.WriteLine("Factorial Of N: {0}", Factorial(10));
+        // Console.WriteLine("Power Of X to N: {0}", Power(8, 5));
+        // Console.WriteLine("Multiply Of a X b: {0}", Multiply(10, 500));
+        // Console.WriteLine("Count Digits Of N: {0}",
+        // number > 0 ? CountDigits(number) : 1);
+        // Console.WriteLine("Sum of Digits Of N: {0}",
+        // number > 0 ? SumOfDigits(number) : 1);
 
-        int[] numbers = [4, 5, 9, 7, 21, 3, 4];
+        int[] numbers = [4, 5, 7, 21];
 
-        Console.WriteLine("Sum Of array ele: {0}", SumArray(numbers));
-        Console.WriteLine("Factorial Of N: {0}", Factorial(10));
-        Console.WriteLine("Max number of Array: {0}", FindMax(numbers));
+        // Console.WriteLine("Sum Of array ele: {0}", SumArray(numbers));
+        // Console.WriteLine("Factorial Of N: {0}", Factorial(10));
+        // Console.WriteLine("Max number of Array: {0}", FindMax(numbers));
+
+        // Console.WriteLine("Contains element: {0}", Contains(numbers, 3, 6));
+
+        // Console.WriteLine("Is array sorted: {0}", IsSorted(numbers));
+
     }
 }
