@@ -1,22 +1,10 @@
 ﻿
 public class Program
 {
-    public static void Main(string[] args)
-    {
-        int number = 6;
-        // string result = PrintName(number);
-        // PrintName(0, number);
-        int result = SumOfNumbers(number);
-
-        Console.WriteLine($"result is {result}");
-
-
-    }
-
     public static int SumOfNumbers(int number)
     {
         Console.WriteLine($"number is {number}");
-        if(number == 0)
+        if (number == 0)
         {
             return 0;
         }
@@ -37,12 +25,51 @@ public class Program
 
     public static void PrintName(int count, int n)
     {
-        if(count == n)
+        if (count == n)
         {
             return;
         }
 
         Console.WriteLine($"Hello, {count}");
         PrintName(count + 1, n);
+    }
+
+    public static void CountDownNumbers(int n)
+    {
+        if (n == 0)
+        {
+            return;
+        }
+        Console.WriteLine("Counrting down: {0}", n);
+
+        CountDownNumbers(n - 1);
+    }
+
+    public static void CountUpNumbers(int n)
+    {
+        if (n == 0)
+        {
+            return;
+        }
+
+        CountUpNumbers(n - 1);
+
+        Console.WriteLine("Counting Up: {0}", n);
+    }
+
+
+    public static void Main(string[] args)
+    {
+        int number = 6;
+        // string result = PrintName(number);
+        // PrintName(0, number);
+        int result = SumOfNumbers(number);
+
+        Console.WriteLine($"result is {result}");
+
+        // CountDownNumbers(10);
+        CountUpNumbers(10);
+
+
     }
 }
