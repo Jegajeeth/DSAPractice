@@ -1,0 +1,6 @@
+# Deep learning framework
+torch
+torchvision
+
+# Optional: only needed if you want to visualize sample digits/predictions
+matplotlib
