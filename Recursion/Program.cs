@@ -202,7 +202,35 @@ public class Program
 
     public static string ReverseString(string s)
     {
-        
+        if (s.Length == 0)
+        {
+            return "";
+        }
+
+        char lastEle = s[^1];
+
+        string previousLast = ReverseString(s[..^1]);
+
+        string reversedString = lastEle + previousLast;
+
+        return reversedString;
+    }
+
+    public static bool IsPaliandrom(string word, int left, int right)
+    {
+
+        if (left == right || right < 0)
+        {
+            return true;
+        }
+
+        if (word[left] != word[right])
+        {
+            return false;
+        }
+
+        return IsPaliandrom(word, left + 1, right - 1);
+
     }
 
     public static void Main(string[] args)
@@ -225,7 +253,7 @@ public class Program
         // Console.WriteLine("Sum of Digits Of N: {0}",
         // number > 0 ? SumOfDigits(number) : 1);
 
-        int[] numbers = [4, 5, 7, 21];
+        // int[] numbers = [4, 5, 7, 21];
 
         // Console.WriteLine("Sum Of array ele: {0}", SumArray(numbers));
         // Console.WriteLine("Factorial Of N: {0}", Factorial(10));
@@ -234,6 +262,11 @@ public class Program
         // Console.WriteLine("Contains element: {0}", Contains(numbers, 3, 6));
 
         // Console.WriteLine("Is array sorted: {0}", IsSorted(numbers));
+
+        string s = "ba";
+
+        // Console.WriteLine("Reveresed string is: {0}", ReverseString(s));
+        Console.WriteLine("Is string Paliandrome: {0}", IsPaliandrom(s, 0, s.Length - 1));
 
     }
 }
